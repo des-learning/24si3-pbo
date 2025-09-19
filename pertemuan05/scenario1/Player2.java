@@ -14,22 +14,25 @@ public class Player2 extends Actor
      */
     public void act()
     {
-        String key = Greenfoot.getKey();
-        if (key == null) {
-            return;
-        }
-        if (key.equals("up")) {
+
+        if (Greenfoot.isKeyDown("up")) {
             setRotation(270);
         }
-        if (key.equals("down")) {
+        if (Greenfoot.isKeyDown("down")) {
             setRotation(90);
         }
-        if (key.equals("right")) {
+        if (Greenfoot.isKeyDown("right")) {
             setRotation(0);
         }
-        if (key.equals("left")) {
+        if (Greenfoot.isKeyDown("left")) {
             setRotation(180);
         }
-        move(10);
+        if (Greenfoot.isKeyDown("up") || 
+            Greenfoot.isKeyDown("down") || 
+            Greenfoot.isKeyDown("right") || 
+            Greenfoot.isKeyDown("left")
+        ) {
+            move(10);
+        }
     }
 }
